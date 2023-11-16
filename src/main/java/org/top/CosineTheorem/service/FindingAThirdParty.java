@@ -1,8 +1,10 @@
 package org.top.CosineTheorem.service;
 
 import org.springframework.stereotype.Service;
+import org.top.CosineTheorem.entity.Coefficient;
+import org.top.CosineTheorem.entity.Solution;
 
 @Service
 public interface FindingAThirdParty {
-    Double finding(Double a,Double b,Double alfa,Boolean isRadian);
+    Solution finding(Coefficient coefficient);
 }

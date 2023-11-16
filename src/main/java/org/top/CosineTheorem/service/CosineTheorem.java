@@ -1,16 +1,29 @@
 package org.top.CosineTheorem.service;
 
 import org.springframework.stereotype.Service;
+import org.top.CosineTheorem.entity.Coefficient;
+import org.top.CosineTheorem.entity.Solution;
 
 @Service
 public class CosineTheorem implements FindingAThirdParty{
+
     @Override
-    public Double finding(Double a, Double b, Double alfa, Boolean isRadian) {
+    public Solution finding(Coefficient coefficient) {
         //A² = b² + c² - 2bc cos α
-        double result= 0;
-        if (isRadian){
-           result = Math.pow(a,2) + Math.pow(b,2) - (2*a*b)*Math.cos(alfa);
+        Double b = coefficient.getB();
+        Double c = coefficient.getC();
+        Double alfa = coefficient.getAlfa();
+        Boolean isRadian = coefficient.getRadian();
+        double result;
+
+        if (b == null || c == null || alfa == null || b < 0 || c<0 || alfa <0 ) {
+            throw new IllegalArgumentException("invalid coefficients values");
         }
-        return Math.pow(result,2);
+        if (!isRadian){
+            alfa = Math.toRadians(alfa);
+        }
+           result = Math.pow(b,2) + Math.pow(c,2) - (2*c*b)*Math.cos(alfa);
+
+        return new Solution(Math.pow(result,2));
     }
 }
