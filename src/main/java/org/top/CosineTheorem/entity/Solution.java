@@ -16,4 +16,7 @@ public class Solution {
     public void setResult(Double result) {
         this.result = result;
     }
+    public String toString(){
+        return "Найдена сторона равна "+result;
+    }
 }

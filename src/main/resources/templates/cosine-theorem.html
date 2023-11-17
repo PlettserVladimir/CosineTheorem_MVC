@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Теорема косинусов</title>
+</head>
+<body>
+    <form th:action="@{/cosine-theorem}" method="post" th:object="${coefficient}">
+        <label for="b">Сторона b:</label>
+        <input type="number" id="b" step="any" th:field="*{b}">
+
+        <label for="c">Сторона с:</label>
+        <input type="number" id="c" step="any" th:field="*{c}">
+
+        <label for="alfa">Угол alfa:</label>
+        <input type="number" id="alfa" step="any" th:field="*{alfa}">
+
+        <label for="isRadian">Радиан</label>
+        <input type="checkbox" id="isRadian" th:field="*{radian}">
+
+        <button>Расчетать</button>
+    </form>
+    <p>Решение: [[${solution}]]</p>
+
+</body>
+</html>

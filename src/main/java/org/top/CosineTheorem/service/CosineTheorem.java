@@ -22,8 +22,8 @@ public class CosineTheorem implements FindingAThirdParty{
         if (!isRadian){
             alfa = Math.toRadians(alfa);
         }
-           result = Math.pow(b,2) + Math.pow(c,2) - (2*c*b)*Math.cos(alfa);
+           result =Math.sqrt(Math.pow(b,2) + Math.pow(c,2) - (2*c*b)*Math.cos(alfa));
 
-        return new Solution(Math.pow(result,2));
+        return new Solution(result);
     }
 }

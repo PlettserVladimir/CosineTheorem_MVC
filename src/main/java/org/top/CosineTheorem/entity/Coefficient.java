@@ -1,14 +1,14 @@
 package org.top.CosineTheorem.entity;
 
 public class Coefficient {
-    Double b;
-    Double c;
-    Double alfa;
-    Boolean isRadian;
+   private Double b;
+    private Double c;
+    private Double alfa;
+    private Boolean isRadian;
 
     public Coefficient(){}
 
-    public Coefficient(Double b, Double c, Double alfa, Boolean isRadian){
+    public Coefficient(double b, double c, double alfa, boolean isRadian){
         this.b = b;
         this.c = c;
         this.alfa = alfa;
@@ -49,6 +49,6 @@ public class Coefficient {
 
     @Override
     public String toString(){
-        return "Сторона b="+b+"Сторона с="+c+"Угол алфа="+alfa;
+        return "Сторона b="+b+"Сторона с="+c+"Угол алфа="+alfa+"Радиан"+isRadian;
     }
 }
