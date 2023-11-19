@@ -20,7 +20,7 @@ public class CosineTheoremController {
     public String theorem(Model model){
         Coefficient emtyCoefficient = new Coefficient(1,2,3,true);
         model.addAttribute("coefficient",emtyCoefficient);
-        return "cosine-theorem";
+        return "cosine-theorem-bootstrap";
 
     }
 
@@ -34,6 +34,6 @@ public class CosineTheoremController {
         }catch (IllegalArgumentException er){
             model.addAttribute("errorMessage",er.getMessage());
         }
-        return "cosine-theorem";
+        return "cosine-theorem-bootstrap";
     }
 }

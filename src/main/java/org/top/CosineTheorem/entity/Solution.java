@@ -1,7 +1,11 @@
 package org.top.CosineTheorem.entity;
 
+import java.text.DecimalFormat;
+
 public class Solution {
     private Double result;
+    private static final String format = "#0.00";
+
 
     public Solution(){}
 
@@ -17,6 +21,7 @@ public class Solution {
         this.result = result;
     }
     public String toString(){
-        return "Найдена сторона равна "+result;
+        String formatDouble = new DecimalFormat(format).format(result);
+        return "Найдена сторона равна "+formatDouble;
     }
 }

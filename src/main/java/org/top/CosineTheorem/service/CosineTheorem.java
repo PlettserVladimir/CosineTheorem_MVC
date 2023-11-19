@@ -20,7 +20,9 @@ public class CosineTheorem implements FindingAThirdParty{
             throw new IllegalArgumentException("invalid coefficients values");
         }
         if (!isRadian){
-            alfa = Math.toRadians(alfa);
+            if (alfa>0 && alfa<=360) {
+                alfa = Math.toRadians(alfa);
+            }else {throw new IllegalArgumentException("invalid coefficients values");}
         }
            result =Math.sqrt(Math.pow(b,2) + Math.pow(c,2) - (2*c*b)*Math.cos(alfa));
 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!-- подключение стилей bootstrap -->
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <title>Calculator</title>
+</head>
+<body>
+    <form th:action="@{/cosine-theorem}" method="post" th:object="${coefficient}">
+        <div class="container text-center" style="border: black solid 2px;margin-top: 10px;padding-top: 10px;border-radius: 10px;background-color:#cef5ec">
+            <h3 class="text-center">Калькулятор теоремы косинусов </h3>
+            <div class="row g-2">
+                <div class="col-6">
+                    <div class="p-3">
+                        <label for="b">Сторона b:</label>
+                        <input type="number" id="b" step="any" th:field="*{b}">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="p-3">
+                        <label for="c">Сторона с:</label>
+                        <input type="number" id="c" step="any" th:field="*{c}">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="p-3">
+                        <label for="alfa">Угол alfa:</label>
+                        <input type="number" id="alfa" step="any" th:field="*{alfa}">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="p-3">
+                        <label for="isRadian">Радиан</label>
+                        <input type="checkbox" id="isRadian" th:field="*{radian}">
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary">Расчетать</button>
+            <br><br>
+            <div th:if="${solution !=null}">
+                <div class="alert alert-success" role="alert">
+                    [[${solution}]]
+                </div>
+            </div>
+            <div th:if="${errorMessage !=null}">
+                <div class="alert alert-warning text-center" role="alert">
+                    Возникла ошибка - [[${errorMessage}]]
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+</body>
+</html>
